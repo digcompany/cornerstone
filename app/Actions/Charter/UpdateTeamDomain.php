@@ -11,7 +11,7 @@ use Validator;
 class UpdateTeamDomain implements UpdatesTeamDomains
 {
     /**
-     * Validate and update the given team's domain.
+     * Validate and update the given  company's domain.
      *
      * @param  mixed  $user
      * @param  mixed  $team

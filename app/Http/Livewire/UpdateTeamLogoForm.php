@@ -56,7 +56,7 @@ class UpdateTeamLogoForm extends Component
     }
 
     /**
-     * Delete team's profile photo.
+     * Delete  company's profile photo.
      *
      * @return void
      */

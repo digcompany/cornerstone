@@ -25,7 +25,7 @@ class TeamDatabaseProjector extends Projector
             ]
         );
 
-        $databaseManager = app(DatabaseManager::class)->setConnection('team');
+        $databaseManager = app(DatabaseManager::class)->setConnection('company');
 
         $databaseManager->createDatabase($teamDatabase);
 

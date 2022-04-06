@@ -19,7 +19,7 @@ abstract class TestCase extends BaseTestCase
                 'database' => ':memory:',
             ],
 
-            'database.connections.team' => [
+            'database.connections.company' => [
                 'driver' => 'sqlite',
                 'database' => ':memory:',
             ],
@@ -28,7 +28,7 @@ abstract class TestCase extends BaseTestCase
         Charter::manageDatabasesUsing(FakeDatabaseManager::class);
 
         $this->artisan('migrate --database=landlord --path=database/migrations/landlord');
-        $this->artisan('migrate:fresh --database=team');
+        $this->artisan('migrate:fresh --database=company');
 
         $this->app[Kernel::class]->setArtisan(null);
     }

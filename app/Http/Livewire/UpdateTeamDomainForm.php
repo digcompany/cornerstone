@@ -37,7 +37,7 @@ class UpdateTeamDomainForm extends Component
     }
 
     /**
-     * Update the team's name.
+     * Update the  company's name.
      *
      * @param  \Laravel\Jetstream\Contracts\UpdatesTeamDomains  $updater
      * @return void

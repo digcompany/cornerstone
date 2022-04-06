@@ -5,7 +5,7 @@ namespace App\Contracts;
 interface UpdatesTeamLogo
 {
     /**
-     * Validate and update the given team's profile information.
+     * Validate and update the given  company's profile information.
      *
      * @param  mixed  $team
      * @param  array  $input

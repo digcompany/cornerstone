@@ -11,7 +11,7 @@ use Laravel\Jetstream\Contracts\UpdatesTeamNames;
 class UpdateTeamName implements UpdatesTeamNames
 {
     /**
-     * Validate and update the given team's name.
+     * Validate and update the given  company'sny's name.
      *
      * @param  mixed  $user
      * @param  mixed  $team

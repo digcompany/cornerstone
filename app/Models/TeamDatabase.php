@@ -26,14 +26,14 @@ class TeamDatabase extends Model
     public function configure()
     {
         config([
-            'database.connections.team.database' => $this->name,
+            'database.connections.company.database' => $this->name,
         ]);
 
-        DB::purge('team');
+        DB::purge('company');
 
-        DB::reconnect('team');
+        DB::reconnect('company');
 
-        Schema::connection('team')->getConnection()->reconnect();
+        Schema::connection('company')->getConnection()->reconnect();
 
         return $this;
     }

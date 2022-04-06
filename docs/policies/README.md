@@ -30,6 +30,6 @@
 * Admins on one of the Team's teams
   * Team admins are members who are admins on one or more teams for that Team
   * Being an admin for an Team requires team membership
-    * In order to make an Team Admin, a user must be assigned to one of the team's team as an admin for that team
+    * In order to make an Team Admin, a user must be assigned to one of the  company's team as an admin for that team
     * The admin can then create other teams for the team
     * They WILL NOT implicitly be an admin for all of the organizations teams!

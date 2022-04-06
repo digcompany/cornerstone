@@ -2,22 +2,22 @@
     @if (Gate::check('addTeamMember', $team))
     <x-jet-section-border />
 
-    <!-- Add Team Member -->
+    <!-- Add Company Member -->
     <div class="mt-10 sm:mt-0">
         <x-jet-form-section submit="addTeamMember">
             <x-slot name="title">
-                {{ __('Add Team Member') }}
+                {{ __('Add Company Member') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                {{ __('Add a new member to your company, allowing them to collaborate with you.') }}
             </x-slot>
 
             <x-slot name="form">
                 <div class="col-span-6">
                     <div class="max-w-xl text-sm text-gray-600">
                         {{ __('Please provide the email address of the person you would like to add to this
-                        team.') }}
+                        company.') }}
                     </div>
                 </div>
 
@@ -86,16 +86,16 @@
     @if ($team->teamInvitations->isNotEmpty() && Gate::check('addTeamMember', $team))
     <x-jet-section-border />
 
-    <!-- Team Member Invitations -->
+    <!-- Company Member Invitations -->
     <div class="mt-10 sm:mt-0">
         <x-jet-action-section>
             <x-slot name="title">
-                {{ __('Pending Team Invitations') }}
+                {{ __('Pending Company Invitations') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('These people have been invited to your team and have been sent an invitation email. They
-                may join the team by accepting the email invitation.') }}
+                {{ __('These people have been invited to your company and have been sent an invitation email. They
+                may join the company by accepting the email invitation.') }}
             </x-slot>
 
             <x-slot name="content">
@@ -106,7 +106,7 @@
 
                         <div class="flex items-center">
                             @if (Gate::check('removeTeamMember', $team))
-                            <!-- Cancel Team Invitation -->
+                            <!-- Cancel Company Invitation -->
                             <button class="ml-6 text-sm text-red-500 cursor-pointer focus:outline-none"
                                 wire:click="cancelTeamInvitation('{{ $invitation->uuid }}')">
                                 {{ __('Cancel') }}
@@ -124,18 +124,18 @@
     @if ($team->users->isNotEmpty())
     <x-jet-section-border />
 
-    <!-- Manage Team Members -->
+    <!-- Manage Company Members -->
     <div class="mt-10 sm:mt-0">
         <x-jet-action-section>
             <x-slot name="title">
-                {{ __('Team Members') }}
+                {{ __('Company Members') }}
             </x-slot>
 
             <x-slot name="description">
                 {{ __('All of the people that are part of this team.') }}
             </x-slot>
 
-            <!-- Team Member List -->
+            <!-- Company Member List -->
             <x-slot name="content">
                 <div class="space-y-6">
                     @foreach ($team->users->sortBy('name') as $user)
@@ -155,7 +155,7 @@
                                 {{ $user->email }}
                             </a>
 
-                            <!-- Manage Team Member Role -->
+                            <!-- Manage Company Member Role -->
                             @if (
                             Gate::check('addTeamMember', $team) &&
                             Laravel\Jetstream\Jetstream::hasRoles() &&
@@ -172,14 +172,14 @@
                             </div>
                             @endif
 
-                            <!-- Leave Team -->
+                            <!-- Leave Company -->
                             @if ($this->user->id === $user->id)
                             <button class="ml-6 text-sm text-red-500 cursor-pointer"
                                 wire:click="$toggle('confirmingLeavingTeam')">
                                 {{ __('Leave') }}
                             </button>
 
-                            <!-- Remove Team Member -->
+                            <!-- Remove Company Member -->
                             @elseif (
                             Gate::check('addTeamMember', $team) &&
                             Laravel\Jetstream\Jetstream::hasRoles() &&
@@ -254,10 +254,10 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    <!-- Leave Team Confirmation Modal -->
+    <!-- Leave Company Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingLeavingTeam">
         <x-slot name="title">
-            {{ __('Leave Team') }}
+            {{ __('Leave Company') }}
         </x-slot>
 
         <x-slot name="content">
@@ -275,10 +275,10 @@
         </x-slot>
     </x-jet-confirmation-modal>
 
-    <!-- Remove Team Member Confirmation Modal -->
+    <!-- Remove Company Member Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingTeamMemberRemoval">
         <x-slot name="title">
-            {{ __('Remove Team Member') }}
+            {{ __('Remove Company Member') }}
         </x-slot>
 
         <x-slot name="content">

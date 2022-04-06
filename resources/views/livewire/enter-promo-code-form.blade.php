@@ -9,7 +9,7 @@
 
     <x-slot name="form">
 
-        <!-- Team Name -->
+        <!-- Company Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="promo_code" value="{{ __('Promo Code') }}" />
 

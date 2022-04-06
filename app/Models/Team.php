@@ -53,15 +53,15 @@ class Team extends JetstreamTeam
     public function configure()
     {
         config([
-            'database.connections.team.database' => $this->teamDatabase->name ?? null,
+            'database.connections.company.database' => $this->teamDatabase->name ?? null,
             'cache.prefix' => $this->id,
         ]);
 
-        DB::purge('team');
+        DB::purge('company');
 
-        DB::reconnect('team');
+        DB::reconnect('company');
 
-        Schema::connection('team')->getConnection()->reconnect();
+        Schema::connection('company')->getConnection()->reconnect();
 
         app('cache')->purge(
             config('cache.default')
@@ -105,7 +105,6 @@ class Team extends JetstreamTeam
     }
 
     //use  native laravel http client to check if domain supports https
-
     public function preferHttps($domain)
     {
         try {

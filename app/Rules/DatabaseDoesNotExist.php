@@ -16,7 +16,7 @@ class DatabaseDoesNotExist implements Rule
      */
     public function __construct()
     {
-        $this->databaseManager = app(DatabaseManager::class)->setConnection('team');
+        $this->databaseManager = app(DatabaseManager::class)->setConnection('company');
     }
 
     /**

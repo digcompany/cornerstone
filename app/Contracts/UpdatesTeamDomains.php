@@ -5,7 +5,7 @@ namespace App\Contracts;
 interface UpdatesTeamDomains
 {
     /**
-     * Validate and update the given team's domain.
+     * Validate and update the given  company's domain.
      *
      * @param  mixed  $user
      * @param  mixed  $team
