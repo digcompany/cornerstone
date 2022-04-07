@@ -10,6 +10,7 @@ class TeamDatabaseCreated extends ShouldBeStored
         public string $databaseUuid,
         public string $userUuid,
         public string $name,
+        public ?string $driver = null,
     ) {
     }
 }

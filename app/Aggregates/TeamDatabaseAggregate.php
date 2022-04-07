@@ -10,12 +10,14 @@ class TeamDatabaseAggregate extends AggregateRoot
     public function createTeamDatabase(
         string $userUuid,
         string $name,
+        ?string $driver = null,
     ) {
         $this->recordThat(
             new TeamDatabaseCreated(
                 databaseUuid: $this->uuid(),
                 userUuid: $userUuid,
                 name: $name,
+                driver: $driver,
             )
         );
 

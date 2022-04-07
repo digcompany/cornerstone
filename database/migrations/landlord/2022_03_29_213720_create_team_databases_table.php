@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('name');
-            $table->string('driver')->default('mysql');
+            $table->string('driver')->default('mysql')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Contracts\DatabaseManager;
 use App\Jobs\MigrateTeamDatabase;
 use App\Models\User;
 use App\StorableEvents\TeamDatabaseCreated;
+use Illuminate\Support\Facades\Queue;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class TeamDatabaseProjector extends Projector
@@ -22,6 +23,7 @@ class TeamDatabaseProjector extends Projector
                 'name' => $event->name,
                 'uuid' => $event->databaseUuid,
                 'user_id' => $user->id,
+                'driver' => $event->driver ?? config('database.connections.company.driver'),
             ]
         );
 
@@ -29,6 +31,6 @@ class TeamDatabaseProjector extends Projector
 
         $databaseManager->createDatabase($teamDatabase);
 
-        MigrateTeamDatabase::dispatch($teamDatabase->uuid);
+        MigrateTeamDatabase::dispatch($teamDatabase->uuid)->onQueue('migrations');
     }
 }

@@ -30,7 +30,7 @@ class TeamDatabaseMigrateCommand extends Command
     {
         if ($this->argument('db')) {
             $this->migrate(
-                TeamDatabase::find($this->argument('db'))
+              $database =  TeamDatabase::whereId($this->argument('db'))->firstOrFail()
             );
         } else {
             TeamDatabase::all()->each(
@@ -49,7 +49,7 @@ class TeamDatabaseMigrateCommand extends Command
         $this->line('-----------------------------------------');
         $this->line('');
 
-        $options = ['--force' => true];
+        $options = ['--force' => true, '--database' => 'company'];
 
         if ($this->option('seed')) {
             $options['--seed'] = true;

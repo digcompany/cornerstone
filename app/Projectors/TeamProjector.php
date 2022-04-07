@@ -17,7 +17,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Laravel\Jetstream\Jetstream;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
-class TeamProjector extends Projector implements ShouldQueue
+class TeamProjector extends Projector
 {
     public function onTeamCreated(TeamCreated $event)
     {
