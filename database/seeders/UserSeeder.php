@@ -98,6 +98,8 @@ class UserSeeder extends Seeder
                 role: $role,
             )->persist();
 
+            $newTeamMember->switchTeam($team);
+
             TeamMemberAdded::dispatch($team, $newTeamMember);
         }
     }

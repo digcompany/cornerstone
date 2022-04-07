@@ -22,8 +22,14 @@ class UpdateTeamDomain implements UpdatesTeamDomains
     {
         Gate::forUser($user)->authorize('update', $team);
 
+        $restrictedDomains = config('charter.restricted_domains', []);
+
+        $appDomain = parse_url(config('app.url'))['host'] ?? '';
+
+        $restrictedDomains[] = $appDomain;
+
         Validator::make($input, [
-            'domain' => ['required', 'string',Rule::unique('landlord.teams')->ignore($team->uuid, 'uuid'), 'max:255'],
+            'domain' => ['required', 'string',Rule::unique('landlord.teams')->ignore($team->uuid, 'uuid'), 'max:255', 'not_in:'.implode(',', $restrictedDomains)],
         ])->validateWithBag('updateTeamDomain');
 
         TeamAggregate::retrieve(
