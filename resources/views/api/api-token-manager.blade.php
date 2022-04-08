@@ -13,26 +13,27 @@
             <!-- Token Name -->
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label for="name" value="{{ __('Token Name') }}" />
-                <x-jet-input id="name" type="text" class="block w-full mt-1" wire:model.defer="createApiTokenForm.name" autofocus />
+                <x-jet-input id="name" type="text" class="block w-full mt-1" wire:model.defer="createApiTokenForm.name"
+                    autofocus />
                 <x-jet-input-error for="name" class="mt-2" />
             </div>
 
             <!-- Token Permissions -->
             @if (Laravel\Jetstream\Jetstream::hasPermissions())
-                <div class="col-span-6">
-                    <x-jet-label for="permissions" value="{{ __('Permissions') }}" />
+            <div class="col-span-6">
+                <x-jet-label for="permissions" value="{{ __('Permissions') }}" />
 
-                    <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
-                        @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
-                            @if(auth()->user()->hasTeamPermission(app('team'), $permission))
-                            <label class="flex items-center">
-                                <x-jet-checkbox wire:model.defer="createApiTokenForm.permissions" :value="$permission"/>
-                                <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
-                            </label>
-                            @endif
-                        @endforeach
-                    </div>
+                <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
+                    @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
+                    @if(auth()->user()->hasTeamPermission(auth()->user()->currentTeam, $permission))
+                    <label class="flex items-center">
+                        <x-jet-checkbox wire:model.defer="createApiTokenForm.permissions" :value="$permission" />
+                        <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
+                    </label>
+                    @endif
+                    @endforeach
                 </div>
+            </div>
             @endif
         </x-slot>
 
@@ -48,51 +49,53 @@
     </x-jet-form-section>
 
     @if ($this->user->tokens->isNotEmpty())
-        <x-jet-section-border />
+    <x-jet-section-border />
 
-        <!-- Manage API Tokens -->
-        <div class="mt-10 sm:mt-0">
-            <x-jet-action-section>
-                <x-slot name="title">
-                    {{ __('Manage API Tokens') }}
-                </x-slot>
+    <!-- Manage API Tokens -->
+    <div class="mt-10 sm:mt-0">
+        <x-jet-action-section>
+            <x-slot name="title">
+                {{ __('Manage API Tokens') }}
+            </x-slot>
 
-                <x-slot name="description">
-                    {{ __('You may delete any of your existing tokens if they are no longer needed.') }}
-                </x-slot>
+            <x-slot name="description">
+                {{ __('You may delete any of your existing tokens if they are no longer needed.') }}
+            </x-slot>
 
-                <!-- API Token List -->
-                <x-slot name="content">
-                    <div class="space-y-6">
-                        @foreach ($this->user->tokens->sortBy('name') as $token)
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    {{ $token->name }}
-                                </div>
+            <!-- API Token List -->
+            <x-slot name="content">
+                <div class="space-y-6">
+                    @foreach ($this->user->tokens->sortBy('name') as $token)
+                    <div class="flex items-center justify-between">
+                        <div>
+                            {{ $token->name }}
+                        </div>
 
-                                <div class="flex items-center">
-                                    @if ($token->last_used_at)
-                                        <div class="text-sm text-gray-400">
-                                            {{ __('Last used') }} {{ $token->last_used_at->diffForHumans() }}
-                                        </div>
-                                    @endif
-
-                                    @if (Laravel\Jetstream\Jetstream::hasPermissions())
-                                        <button class="ml-6 text-sm text-gray-400 underline cursor-pointer" wire:click="manageApiTokenPermissions({{ $token->id }})">
-                                            {{ __('Permissions') }}
-                                        </button>
-                                    @endif
-
-                                    <button class="ml-6 text-sm text-red-500 cursor-pointer" wire:click="confirmApiTokenDeletion({{ $token->id }})">
-                                        {{ __('Delete') }}
-                                    </button>
-                                </div>
+                        <div class="flex items-center">
+                            @if ($token->last_used_at)
+                            <div class="text-sm text-gray-400">
+                                {{ __('Last used') }} {{ $token->last_used_at->diffForHumans() }}
                             </div>
-                        @endforeach
+                            @endif
+
+                            @if (Laravel\Jetstream\Jetstream::hasPermissions())
+                            <button class="ml-6 text-sm text-gray-400 underline cursor-pointer"
+                                wire:click="manageApiTokenPermissions({{ $token->id }})">
+                                {{ __('Permissions') }}
+                            </button>
+                            @endif
+
+                            <button class="ml-6 text-sm text-red-500 cursor-pointer"
+                                wire:click="confirmApiTokenDeletion({{ $token->id }})">
+                                {{ __('Delete') }}
+                            </button>
+                        </div>
                     </div>
-                </x-slot>
-            </x-jet-action-section>
-        </div>
+                    @endforeach
+                </div>
+            </x-slot>
+        </x-jet-action-section>
+    </div>
     @endif
 
     <!-- Token Value Modal -->
@@ -107,10 +110,9 @@
             </div>
 
             <x-jet-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken"
-                class="w-full px-4 py-2 mt-4 font-mono text-sm text-gray-500 bg-gray-100 rounded"
-                autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)"
-            />
+                class="w-full px-4 py-2 mt-4 font-mono text-sm text-gray-500 bg-gray-100 rounded" autofocus
+                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)" />
         </x-slot>
 
         <x-slot name="footer">
@@ -129,16 +131,19 @@
         <x-slot name="content">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
-                    <label class="flex items-center">
-                        <x-jet-checkbox wire:model.defer="updateApiTokenForm.permissions" :value="$permission"/>
-                        <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
-                    </label>
+                @if(auth()->user()->hasTeamPermission(auth()->user()->currentTeam, $permission))
+                <label class="flex items-center">
+                    <x-jet-checkbox wire:model.defer="updateApiTokenForm.permissions" :value="$permission" />
+                    <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
+                </label>
+                @endif
                 @endforeach
             </div>
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
+            <x-jet-secondary-button wire:click="$set('managingApiTokenPermissions', false)"
+                wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-jet-secondary-button>
 

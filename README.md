@@ -1,8 +1,8 @@
-# The Source Code of DigCompany
+# The Source Code of Cornerstone
 
-![Tests](https://github.com/digcompany/digcompany/actions/workflows/test.yml/badge.svg)
-![Styling](https://github.com/digcompany/digcompany/actions/workflows/code-formatting.yml/badge.svg)
-![Linting](https://github.com/digcompany/digcompany/actions/workflows/phplint.yml/badge.svg)
+![Tests](https://github.com/digcompany/cornerstone/actions/workflows/test.yml/badge.svg)
+![Styling](https://github.com/digcompany/cornerstone/actions/workflows/code-formatting.yml/badge.svg)
+![Linting](https://github.com/digcompany/cornerstone/actions/workflows/phplint.yml/badge.svg)
 
 ## Installation
 
