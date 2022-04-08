@@ -55,3 +55,11 @@ php artisan test
 ```bash
 php artisan serve
 ```
+
+### Seeding the database
+
+Optionally you way seed the database with the following command
+
+```bash
+php artisan migrate:fresh --seed --path=database/migrations/landlord --database=landlord
+```
