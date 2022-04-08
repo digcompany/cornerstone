@@ -27,8 +27,8 @@ class UserSeeder extends Seeder
         $owner = $creator->create([
             'name' => 'Owner',
             'email' => 'owner@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
+            'password' => 'pa$$w0rd',
+            'password_confirmation' => 'pa$$w0rd',
             'terms' => true,
         ]);
 
@@ -51,40 +51,32 @@ class UserSeeder extends Seeder
         $ownerTeamMembers['admin'] = $creator->create([
             'name' => 'Admin',
             'email' => 'admin@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
+            'password' => 'pa$$w0rd',
+            'password_confirmation' => 'pa$$w0rd',
             'terms' => true,
         ]);
 
         $ownerTeamMembers['supervisor'] = $creator->create([
             'name' => 'Supervisor',
             'email' => 'supervisor@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
-            'terms' => true,
-        ]);
-
-        $ownerTeamMembers['editor'] = $creator->create([
-            'name' => 'Editor',
-            'email' => 'editor@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
+            'password' => 'pa$$w0rd',
+            'password_confirmation' => 'pa$$w0rd',
             'terms' => true,
         ]);
 
         $ownerTeamMembers['workforce'] = $creator->create([
             'name' => 'Workforce',
             'email' => 'workforce@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
+            'password' => 'pa$$w0rd',
+            'password_confirmation' => 'pa$$w0rd',
             'terms' => true,
         ]);
 
         $ownerTeamMembers['client'] = $creator->create([
             'name' => 'client',
             'email' => 'client@mailinator.com',
-            'password' => 'pa$$word',
-            'password_confirmation' => 'pa$$word',
+            'password' => 'pa$$w0rd',
+            'password_confirmation' => 'pa$$w0rd',
             'terms' => true,
         ]);
 

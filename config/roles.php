@@ -6,9 +6,11 @@ return [
         'name' => 'Administerator',
         'permissions' => [
             '*:create' => 'Can create any resource',
-            '*:read' => 'Can read any resource',
             '*:update' => 'Can update any resource',
-            '*:delete' => 'Can delete any resource',
+            'records:read' => 'Can read records',
+            'records:delete' => 'Can delete records',
+            'own:read'  => 'Can read own records',
+            'own:delete' => 'Can update own records',
         ],
         'description' => 'Administrators can perform any action.',
     ],
@@ -16,23 +18,14 @@ return [
     'supervisor' => [
         'name' => 'Supervisor',
         'permissions' => [
+            '*:create' => 'Can create any resource',
+            '*:update' => 'Can update any resource',
             'records:read' => 'Can read records',
-            'records:create' => 'Can create records',
-            'records:update' => 'Can update records',
             'records:delete' => 'Can delete records',
+            'own:read'  => 'Can read own records',
+            'own:delete' => 'Can update own records',
         ],
-        'description' => 'Supervisors can manage teams and records.',
-    ],
-
-    'editor' => [
-        'name' => 'Editor',
-        'permissions' => [
-            'records:read' => 'Can read records',
-            'records:create' => 'Can create records',
-            'records:update' => 'Can update records',
-            'records:delete' => 'Can delete records',
-        ],
-        'description' => 'Editors can manage records.',
+        'description' => 'Supervisors can manage records.',
     ],
 
     'workforce' => [
