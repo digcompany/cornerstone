@@ -6,7 +6,6 @@ use App\Contracts\DatabaseManager;
 use App\Jobs\MigrateTeamDatabase;
 use App\Models\User;
 use App\StorableEvents\TeamDatabaseCreated;
-use Illuminate\Support\Facades\Queue;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class TeamDatabaseProjector extends Projector

@@ -30,7 +30,7 @@ class TeamDatabaseMigrateCommand extends Command
     {
         if ($this->argument('db')) {
             $this->migrate(
-              $database =  TeamDatabase::whereId($this->argument('db'))->firstOrFail()
+                $database = TeamDatabase::whereId($this->argument('db'))->firstOrFail()
             );
         } else {
             TeamDatabase::all()->each(
