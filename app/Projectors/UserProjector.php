@@ -55,11 +55,16 @@ class UserProjector extends Projector
 
     public function onUserCreated(UserCreated $event)
     {
+        $password = (strlen($event->password) === 60 && preg_match('/^\$2y\$/', $event->password)) ||
+        (strlen($event->password) === 95 && preg_match('/^\$argon2i\$/', $event->password)) ?
+            $event->password :
+            Hash::make($event->password);
+
         $user = User::forceCreate([
             'uuid' => $event->userUuid,
             'name' => $event->name,
             'email' => $event->email,
-            'password' => Hash::make($event->password),
+            'password' => $password,
             'type' => User::count() === 0 ? UserType::SuperAdmin : UserType::User,
         ]);
 

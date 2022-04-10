@@ -10,6 +10,7 @@ use App\StorableEvents\UserProfileUpdated;
 use App\StorableEvents\UserPromoCodeEntered;
 use App\StorableEvents\UserSwitchedTeam;
 use App\StorableEvents\UserTypeUpdated;
+use Illuminate\Support\Facades\Hash;
 use Spatie\EventSourcing\AggregateRoots\AggregateRoot;
 
 class UserAggregate extends AggregateRoot
@@ -22,6 +23,10 @@ class UserAggregate extends AggregateRoot
         ?string $teamUuid = null,
         ?string $teamName = null,
     ) {
+        $password = (strlen($password) === 60 && preg_match('/^\$2y\$/', $password)) ||
+        (strlen($password) === 95 && preg_match('/^\$argon2i\$/', $password)) ?
+            $password :
+            Hash::make($password);
         $this->recordThat(
             new UserCreated(
                 userUuid: $this->uuid(),
