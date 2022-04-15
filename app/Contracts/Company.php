@@ -16,6 +16,8 @@ interface Company
 
     public function streetAddress() : string;
 
+    public function citStateZip() : string;
+
     public function phone() : string;
 
     public function fax() : string;
