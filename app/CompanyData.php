@@ -32,6 +32,15 @@ class CompanyData extends Data implements Company
         return $this->address;
     }
 
+    public function streetAddress(): string
+    {
+        $streetAddress = $this->address->street;
+        if($this->address->lineTwo) {
+            $streetAddress .= ', ' . $this->address->lineTwo;
+        }
+        return $streetAddress;
+    }
+
     public function phone(): string
     {
         return $this->phone;

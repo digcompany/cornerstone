@@ -14,6 +14,8 @@ interface Company
 
     public function address() : AddressData;
 
+    public function streetAddress() : string;
+
     public function phone() : string;
 
     public function fax() : string;
