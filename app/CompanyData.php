@@ -43,6 +43,7 @@ class CompanyData extends Data implements Company
     public function citStateZip(): string
     {
         $citStateZip = $this->address->city . ', ' . $this->address->state . ' ' . $this->address->zip;
+
         return $citStateZip;
     }
 
