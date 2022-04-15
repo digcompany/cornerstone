@@ -40,11 +40,9 @@ class CompanyData extends Data implements Company
         return $streetAddress;
     }
 
-    public function citStateZip(): string
+    public function cityStateZip(): string
     {
-        $citStateZip = $this->address->city . ', ' . $this->address->state . ' ' . $this->address->zip;
-
-        return $citStateZip;
+        return $this->address->city . ', ' . $this->address->state . ' ' . $this->address->zip;
     }
 
     public function phone(): string
