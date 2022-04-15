@@ -29,7 +29,7 @@ Then edit database configurations to match your local setup
 ### Run Migrations
 
 ```bash
-php artisan migrate:fresh --path=database/migrations/landlord --database=landlord
+php artisan migrate:fresh --seed --path=database/migrations/landlord --database=landlord
 ```
 
 ### Then install the icons
