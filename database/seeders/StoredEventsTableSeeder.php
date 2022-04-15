@@ -14,12 +14,12 @@ class StoredEventsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('stored_events')->delete();
-        
+
         \DB::table('stored_events')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'user_uuid' => NULL,
@@ -33,7 +33,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"3cf992e8-c041-43ca-beaf-e65564cc4f2d","created-at":"2022-04-15T15:46:26.152693Z","aggregate-root-version":1,"stored-event-id":1}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'user_uuid' => NULL,
@@ -47,7 +47,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"3cf992e8-c041-43ca-beaf-e65564cc4f2d","created-at":"2022-04-15T15:46:26.215635Z","aggregate-root-version":2,"stored-event-id":2}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'user_uuid' => NULL,
@@ -61,7 +61,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"00000000-0000-0000-0000-000000000000","created-at":"2022-04-15T15:46:26.224951Z","aggregate-root-version":1,"stored-event-id":3}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'user_uuid' => NULL,
@@ -75,7 +75,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.251456Z","aggregate-root-version":1,"stored-event-id":4}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'user_uuid' => NULL,
@@ -89,7 +89,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"bce67e94-f296-4b62-a983-7daedd38cccd","created-at":"2022-04-15T15:46:26.318544Z","aggregate-root-version":1,"stored-event-id":5}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'user_uuid' => NULL,
@@ -103,7 +103,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"3c4a1c64-40b3-46db-ab58-1e9ae1cd4a8a","created-at":"2022-04-15T15:46:26.382658Z","aggregate-root-version":1,"stored-event-id":6}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'user_uuid' => NULL,
@@ -117,7 +117,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"b2fdcd67-dee4-438d-8856-14a6794ff1d8","created-at":"2022-04-15T15:46:26.443649Z","aggregate-root-version":1,"stored-event-id":7}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'user_uuid' => NULL,
@@ -131,7 +131,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"56b0711e-0334-481d-803b-e63d5a179d6b","created-at":"2022-04-15T15:46:26.504664Z","aggregate-root-version":1,"stored-event-id":8}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'user_uuid' => NULL,
@@ -145,7 +145,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.554667Z","aggregate-root-version":2,"stored-event-id":9}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'user_uuid' => NULL,
@@ -159,7 +159,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.630855Z","aggregate-root-version":3,"stored-event-id":10}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'user_uuid' => NULL,
@@ -173,7 +173,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.730028Z","aggregate-root-version":4,"stored-event-id":11}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'user_uuid' => NULL,
@@ -187,7 +187,7 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.861491Z","aggregate-root-version":5,"stored-event-id":12}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'user_uuid' => '3cf992e8-c041-43ca-beaf-e65564cc4f2d',
@@ -197,11 +197,11 @@ class StoredEventsTableSeeder extends Seeder
                 'aggregate_version' => 6,
                 'event_version' => 1,
                 'event_class' => 'App\\StorableEvents\\TeamCompanyDataUpdated',
-                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Acworth","state":"GA","zip":"30101","street":"4494 Acworth Industrial Drive,","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"logoUrl":null,"logoPath":"no_image.jpg","phone":"404-587-4272","fax":"770-485-0196"}}',
+                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Acworth","state":"GA","zip":"30101","street":"4494 Acworth Industrial Drive,","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"phone":"404-587-4272","fax":"770-485-0196"}}',
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T16:03:31.419850Z","aggregate-root-version":6,"stored-event-id":13}',
                 'created_at' => '2022-04-15 12:03:31',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 14,
                 'user_uuid' => '3cf992e8-c041-43ca-beaf-e65564cc4f2d',
@@ -211,12 +211,12 @@ class StoredEventsTableSeeder extends Seeder
                 'aggregate_version' => 7,
                 'event_version' => 1,
                 'event_class' => 'App\\StorableEvents\\TeamCompanyDataUpdated',
-                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Little Rock","state":"AR","zip":"72201","street":"4494 Acme Industrial Drive","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"logoUrl":null,"logoPath":"no_image.jpg","phone":"555-555-5555","fax":"555-555-5555"}}',
+                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Little Rock","state":"AR","zip":"72201","street":"4494 Acme Industrial Drive","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"phone":"555-555-5555","fax":"555-555-5555"}}',
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T16:11:03.242046Z","aggregate-root-version":7,"stored-event-id":14}',
                 'created_at' => '2022-04-15 12:11:03',
             ),
         ));
-        
-        
+
+
     }
 }
