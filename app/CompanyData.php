@@ -14,7 +14,7 @@ class CompanyData extends Data implements Company
         public ?string $website = null,
         public ?string $email = null,
         public ?string $logoUrl = null,
-        public string $logoPath = 'no_image.jpg',
+        public string $logoPath = 'profile-photos/no_image.jpg',
         public string $phone = '(_ _ _) _ _ _- _ _ _ _',
         public string $fax = '(_ _ _) _ _ _- _ _ _ _',
     ) {
