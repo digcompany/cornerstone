@@ -13,8 +13,6 @@ class AddressData extends Data
         public string $street,
         public ?string $country = 'USA',
         public ?string $lineTwo = null,
-
-    )
-    {
+    ) {
     }
 }

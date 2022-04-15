@@ -13,13 +13,11 @@ class CompanyData extends Data implements Company
         public ?string $name = null,
         public ?string $website = null,
         public ?string $email = null,
-        public ?string $logoUrl =null,
+        public ?string $logoUrl = null,
         public string $logoPath = 'no_image.jpg',
         public string $phone = '(_ _ _) _ _ _- _ _ _ _',
         public string $fax = '(_ _ _) _ _ _- _ _ _ _',
-
-    )
-    {
+    ) {
     }
 
     public function name(): string
@@ -58,8 +56,7 @@ class CompanyData extends Data implements Company
 
     public function logoPath(): string
     {
-
-       return ($this->getLogoDisk())->path($this->logoPath);
+        return ($this->getLogoDisk())->path($this->logoPath);
     }
 
     public function logoUrl(): string
@@ -76,5 +73,4 @@ class CompanyData extends Data implements Company
     {
         return Storage::disk(config('jetstream.profile_photo_disk', 'public'));
     }
-
 }

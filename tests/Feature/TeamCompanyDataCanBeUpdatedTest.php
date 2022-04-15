@@ -3,12 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\UpdateTeamCompanyDataForm;
-use App\Models\Team;
 use App\Models\User;
-use DB;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\DB as FacadesDB;
 use Livewire;
 use Tests\TestCase;
 
