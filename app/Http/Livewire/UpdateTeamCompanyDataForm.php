@@ -34,10 +34,10 @@ class UpdateTeamCompanyDataForm extends Component
         $this->team = $team;
 
         $this->state = $team->companyData->toArray();
-        if($this->state['fax'] == '(_ _ _) _ _ _- _ _ _ _') {
+        if ($this->state['fax'] == '(_ _ _) _ _ _- _ _ _ _') {
             $this->state['fax'] = null;
         }
-        if($this->state['phone'] == '(_ _ _) _ _ _- _ _ _ _') {
+        if ($this->state['phone'] == '(_ _ _) _ _ _- _ _ _ _') {
             $this->state['phone'] = null;
         }
     }
@@ -70,6 +70,7 @@ class UpdateTeamCompanyDataForm extends Component
     {
         return Auth::user();
     }
+
     public function render()
     {
         return view('livewire.update-team-company-data-form');

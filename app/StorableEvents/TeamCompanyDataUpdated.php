@@ -9,7 +9,6 @@ class TeamCompanyDataUpdated extends ShouldBeStored
     public function __construct(
         public $teamUuid,
         public array $companyData
-    )
-    {
+    ) {
     }
 }
