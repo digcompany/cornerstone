@@ -22,7 +22,7 @@ class CompanyData extends Data implements Company
 
     public function name(): string
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 
     public function address(): AddressData
@@ -52,12 +52,12 @@ class CompanyData extends Data implements Company
 
     public function email(): string
     {
-        return $this->email;
+        return $this->email ?? '';
     }
 
     public function website(): string
     {
-        return $this->website;
+        return $this->website ?? '';
     }
 
     public function logoPath(): string
