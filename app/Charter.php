@@ -9,6 +9,7 @@ use App\Contracts\DeletesLink;
 use App\Contracts\SubscribesByPromoCode;
 use App\Contracts\UpdatesCurrentTeam;
 use App\Contracts\UpdatesLink;
+use App\Contracts\UpdatesTeamCompanyData;
 use App\Contracts\UpdatesTeamDomains;
 use App\Contracts\UpdatesTeamLogo;
 use App\Contracts\UpdatesUserType;
@@ -19,6 +20,17 @@ use Illuminate\Http\Request;
 
 class Charter
 {
+    /**
+     * Register a class / callback that should be used to create a database.
+     *
+     * @param  string  $callback
+     * @return void
+     */
+    public static function updateTeamCompanyDataUsing(string $callback)
+    {
+        app()->singleton(UpdatesTeamCompanyData::class, $callback);
+    }
+
     /**
      * Register a class / callback that should be used to create a database.
      *

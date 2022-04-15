@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\AddressData;
+use App\CompanyData;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\DB;
@@ -85,9 +87,13 @@ class Team extends JetstreamTeam
 
     public function use()
     {
+        app()->forgetInstance('company');
+
         app()->forgetInstance('team');
 
         app()->instance('team', $this);
+
+        app()->instance('company', $this->company_data);
 
         return $this;
     }
@@ -101,6 +107,38 @@ class Team extends JetstreamTeam
     {
         return new Attribute(
             get: fn ($value, $attributes) => isset($attributes['domain']) ? $this->preferHttps($attributes['domain']) : config('app.url'),
+        );
+    }
+
+    public function companyData() : Attribute
+    {
+        return new Attribute(
+            get: fn ($value, $attributes) => $this->getCompanyData($value, $attributes),
+            set: fn ($value, $attributes) => json_encode($value),
+        );
+    }
+
+    public function getCompanyData($value, $attributes)
+    {
+        $companyData = json_decode($attributes['company_data'], true);
+        $address = new AddressData(
+            city: $companyData['address']['city'] ?? '',
+            state:  $companyData['address']['state'] ?? '',
+            zip: $companyData['address']['zip'] ?? '',
+            street: $companyData['address']['street'] ?? '',
+            country: $companyData['address']['country'] ?? 'USA',
+            lineTwo: $companyData['address']['lineTwo'] ?? null,
+        );
+
+        return new CompanyData(
+            name: $this->name,
+            address: $address,
+            logoUrl: $this->profile_photo_url,
+            logoPath: $this->profile_photo_path ?? 'no_image.jpg',
+            phone: $companyData['phone'] ?? '(_ _ _) _ _ _- _ _ _ _',
+            fax: $companyData['fax'] ?? '(_ _ _) _ _ _- _ _ _ _',
+            email: $companyData['email'] ?? null,
+            website: $companyData['website'] ?? null,
         );
     }
 

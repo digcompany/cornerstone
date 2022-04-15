@@ -2,6 +2,7 @@
 
 namespace App\Aggregates;
 
+use App\StorableEvents\TeamCompanyDataUpdated;
 use App\StorableEvents\TeamCreated;
 use App\StorableEvents\TeamDeleted;
 use App\StorableEvents\TeamDomainUpdated;
@@ -96,6 +97,17 @@ class TeamAggregate extends AggregateRoot
         $this->recordThat(new TeamDomainUpdated(
             teamUuid: $this->uuid(),
             domain: $domain,
+        ));
+
+        return $this;
+    }
+
+    public function updateTeamCompanyData(
+        array $companyData,
+    ) {
+        $this->recordThat(new TeamCompanyDataUpdated(
+            teamUuid: $this->uuid(),
+            companyData: $companyData,
         ));
 
         return $this;

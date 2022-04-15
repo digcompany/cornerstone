@@ -17,6 +17,10 @@
 
             @livewire('update-team-domain-form', ['team' => $team])
 
+            <x-jet-section-border />
+
+            @livewire('update-team-company-data-form', ['team' => $team])
+
             @livewire('teams.team-member-manager', ['team' => $team])
 
             @if (Gate::check('delete', $team) && ! $team->personal_team)

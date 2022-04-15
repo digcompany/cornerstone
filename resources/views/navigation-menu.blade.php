@@ -47,7 +47,7 @@
                             <span class="inline-flex rounded-md">
                                 <button type="button"
                                     class="inline-flex items-center px-3 py-2 space-x-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
-                                    <x-application-logo class="object-cover w-1/3 h-auto" />
+                                    <x-application-mark class="block w-auto h-9" />
 
                                    <span>{{ Auth::user()->currentTeam->name }}</span>
 

@@ -8,6 +8,7 @@ use App\Actions\Charter\DeleteLink;
 use App\Actions\Charter\SubscribeByPromoCode;
 use App\Actions\Charter\UpdateCurrentTeam;
 use App\Actions\Charter\UpdateLink;
+use App\Actions\Charter\UpdateTeamCompanyData;
 use App\Actions\Charter\UpdateTeamDomain;
 use App\Actions\Charter\UpdateTeamLogo;
 use App\Actions\Charter\UpdateUserType;
@@ -25,6 +26,7 @@ class CharterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Charter::updateTeamCompanyDataUsing(UpdateTeamCompanyData::class);
         Charter::manageDatabasesUsing($this->getDatabasemanager());
         Charter::createDatabasesUsing(CreateDatabase::class);
         Charter::subscribeByPromoCodeUsing(SubscribeByPromoCode::class);

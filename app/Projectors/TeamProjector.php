@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\TeamDatabase;
 use App\Models\TeamInvitation;
 use App\Models\User;
+use App\StorableEvents\TeamCompanyDataUpdated;
 use App\StorableEvents\TeamCreated;
 use App\StorableEvents\TeamDeleted;
 use App\StorableEvents\TeamDomainUpdated;
@@ -90,5 +91,12 @@ class TeamProjector extends Projector
         $team->forceFill([
             'domain' => $event->domain,
         ])->save();
+    }
+
+    public function onTeamCompanyDataUpdated(TeamCompanyDataUpdated $event)
+    {
+        $team = Team::whereUuid($event->teamUuid)->first();
+
+        $team->forcefill([ 'company_data' => $event->companyData])->save();
     }
 }
