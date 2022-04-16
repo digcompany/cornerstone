@@ -36,6 +36,18 @@
                 <x-jet-input-error for="fax" class="mt-2" />
             </div>
 
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label for="email" value="{{ __('Company Email') }}" />
+
+                <x-jet-input id="email"
+                            type="text"
+                            class="block w-full mt-1"
+                            wire:model.defer="state.email"
+                            :disabled="! Gate::check('update', $team)" />
+
+                <x-jet-input-error for="email" class="mt-2" />
+            </div>
+
             <!-- Company Address -->
 
             <div class="col-span-6 sm:col-span-4">
