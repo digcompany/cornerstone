@@ -33,7 +33,7 @@ class CompanyData extends Data implements Company
     public function streetAddress(): string
     {
         $streetAddress = $this->address->street;
-        if ($this->address->lineTwo) {
+        if (isset($this->address->lineTwo) && strlen($this->address->lineTwo) > 1) {
             $streetAddress .= ', ' . $this->address->lineTwo;
         }
 
