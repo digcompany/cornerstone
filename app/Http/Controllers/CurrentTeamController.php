@@ -21,6 +21,8 @@ class CurrentTeamController extends Controller
 
         $updater->update($request->user(), ['team_uuid' => $team->uuid]);
 
-        return redirect($team->url ?? config('fortify.home'), 303);
+        $previousPath = str_replace(url('/'), '', url()->previous());
+
+        return redirect($team->url ? $team->url . $previousPath : config('fortify.home'), 303);
     }
 }
