@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Contracts\UpdatesCurrentTeam;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnsureHasTeam
 {
@@ -19,7 +20,7 @@ class EnsureHasTeam
         return $next($request);
     }
 
-    protected function ensureOneOfTheTeamsIsCurrent(Request $request): void
+    protected function ensureOneOfTheTeamsIsCurrent(Request $request)
     {
         $updater = app(UpdatesCurrentTeam::class);
 
@@ -28,6 +29,9 @@ class EnsureHasTeam
         }
 
         $firstTeamUuid = $request->user()->allTeams()->first()->uuid;
+        $firstTeam = $request->user()->allTeams()->first();
+        $request->user()->switchTeam($firstTeam);
         $updater->update($request->user(), ['team_uuid' => $firstTeamUuid]);
+        return;
     }
 }
