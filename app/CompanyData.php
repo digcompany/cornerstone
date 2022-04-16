@@ -3,8 +3,8 @@
 namespace App;
 
 use App\Contracts\Company as Company;
+use Illuminate\Support\Facades\Storage;
 use Spatie\LaravelData\Data;
-use Storage;
 
 class CompanyData extends Data implements Company
 {
@@ -14,9 +14,9 @@ class CompanyData extends Data implements Company
         public ?string $website = null,
         public ?string $email = null,
         public ?string $logoUrl = null,
-        public string $logoPath = 'profile-photos/no_image.jpg',
-        public string $phone = '(_ _ _) _ _ _- _ _ _ _',
-        public string $fax = '(_ _ _) _ _ _- _ _ _ _',
+        public ?string $logoPath = null,
+        public ?string $phone = null,
+        public ?string $fax = null
     ) {
     }
 
@@ -47,7 +47,7 @@ class CompanyData extends Data implements Company
 
     public function phone(): string
     {
-        return $this->phone;
+        return $this->phone ?? config('company.empty_phone');
     }
 
     public function email(): string
@@ -62,7 +62,7 @@ class CompanyData extends Data implements Company
 
     public function logoPath(): string
     {
-        return ($this->getLogoDisk())->path($this->logoPath);
+        return ($this->getLogoDisk())->path($this->logoPath ?? config('company.empty_logo_path'));
     }
 
     public function logoUrl(): string
@@ -72,7 +72,7 @@ class CompanyData extends Data implements Company
 
     public function fax(): string
     {
-        return $this->fax;
+        return $this->fax ?? config('company.empty_fax');
     }
 
     protected function getLogoDisk()

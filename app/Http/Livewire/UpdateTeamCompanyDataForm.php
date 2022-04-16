@@ -34,10 +34,10 @@ class UpdateTeamCompanyDataForm extends Component
         $this->team = $team;
 
         $this->state = $team->companyData->toArray();
-        if ($this->state['fax'] == '(_ _ _) _ _ _- _ _ _ _') {
+        if ($this->state['fax'] == config('company.empty_phone')) {
             $this->state['fax'] = null;
         }
-        if ($this->state['phone'] == '(_ _ _) _ _ _- _ _ _ _') {
+        if ($this->state['phone'] == config('company.empty_phone')) {
             $this->state['phone'] = null;
         }
         if ($this->state['email'] == '') {

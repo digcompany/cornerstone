@@ -36,8 +36,8 @@ class UpdateTeamCompanyData implements UpdatesTeamCompanyData
             ),
             website: $input['website'] ?? null,
             email: $input['email'] ?? null,
-            phone: $input['phone'] ?? '(_ _ _) _ _ _- _ _ _ _',
-            fax: $input['fax'] ?? '(_ _ _) _ _ _- _ _ _ _',
+            phone: $input['phone'] ?? config('company.empty_phone'),
+            fax: $input['fax'] ?? config('company.empty_phone'),
         );
 
         $teamAggregate = TeamAggregate::retrieve($team->uuid);

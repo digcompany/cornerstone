@@ -134,9 +134,9 @@ class Team extends JetstreamTeam
             name: $this->name,
             address: $address,
             logoUrl: $this->profile_photo_url,
-            logoPath: $this->profile_photo_path ?? 'profile-photos/no_image.jpg',
-            phone: $companyData['phone'] ?? '(_ _ _) _ _ _- _ _ _ _',
-            fax: $companyData['fax'] ?? '(_ _ _) _ _ _- _ _ _ _',
+            logoPath: $this->profile_photo_path ?? config('company.empty_logo_path'),
+            phone: $companyData['phone'] ?? config('company.empty_phone'),
+            fax: $companyData['fax'] ?? config('company.empty_phone'),
             email: $companyData['email'] ?? null,
             website: $companyData['website'] ?? null,
         );
