@@ -46,6 +46,7 @@ class CompanyData extends Data implements Company
             strlen($this->address->city) < 1 || strlen($this->address->state) < 1 || strlen($this->address->zip) < 1) {
             return '';
         }
+
         return $this->address->city . ', ' . $this->address->state . ' ' . $this->address->zip;
     }
 
