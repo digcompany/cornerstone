@@ -40,7 +40,7 @@ class UpdateTeamCompanyDataForm extends Component
         if ($this->state['phone'] == '(_ _ _) _ _ _- _ _ _ _') {
             $this->state['phone'] = null;
         }
-        if ($this->state['email'] == '___@____.___') {
+        if ($this->state['email'] == '') {
             $this->state['email'] = null;
         }
     }

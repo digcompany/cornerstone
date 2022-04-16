@@ -52,7 +52,7 @@ class CompanyData extends Data implements Company
 
     public function email(): string
     {
-        return $this->email ?? '___@____.___';
+        return $this->email ?? '';
     }
 
     public function website(): string
