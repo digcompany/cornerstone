@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Contracts\UpdatesCurrentTeam;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class EnsureHasTeam
 {
@@ -32,6 +31,7 @@ class EnsureHasTeam
         $firstTeam = $request->user()->allTeams()->first();
         $request->user()->switchTeam($firstTeam);
         $updater->update($request->user(), ['team_uuid' => $firstTeamUuid]);
+
         return;
     }
 }

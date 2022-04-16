@@ -37,7 +37,6 @@ class ImpersonatedTeam
                 $request->session()->put('impersonated_team_uuid', $user->currentTeam->uuid);
                 $request->session()->put('impersonated_team_name', $user->currentTeam->name);
             }
-
         }
 
         return $next($request);
