@@ -7,14 +7,17 @@ use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
-class Link extends Model
+class Link extends Model implements Sortable
 {
     use HasFactory;
     use BindsOnUuid;
     use GeneratesUuid;
     use HasChildren;
     use UsesLandlordConnection;
+    use SortableTrait;
 
     protected $casts = [
         'type' => LinkType::class,

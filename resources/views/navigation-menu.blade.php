@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    @foreach (\App\Models\Link::where('view', \App\Models\LinkMenu::NavigationMenu->value )->get() as
+                    @foreach (\App\Models\Link::where('view', \App\Models\LinkMenu::NavigationMenu->value )->ordered()->get() as
                     $link)
                     @if(Gate::allows('view', $link))
 

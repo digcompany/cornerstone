@@ -22,6 +22,7 @@
         "laravel/telescope": "^4.7",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
+        "spatie/eloquent-sortable": "^4.0",
         "spatie/laravel-data": "^1.4",
         "spatie/laravel-event-sourcing": "^7.2"
     },

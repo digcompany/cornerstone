@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('view')->nullable();
             $table->string('icon')->nullable();
+            $table->bigInteger('order_column')->nullable();
             $table->timestamps();
         });
     }
