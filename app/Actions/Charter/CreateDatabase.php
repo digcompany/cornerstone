@@ -4,7 +4,6 @@ namespace App\Actions\Charter;
 
 use App\Aggregates\TeamDatabaseAggregate;
 use App\Contracts\CreatesDatabase;
-use App\Models\TeamDatabase;
 use App\Rules\DatabaseDoesNotExist;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -56,6 +55,7 @@ class CreateDatabase implements CreatesDatabase
     {
         session()->flash('flash.banner', __('Database created successfully.'));
         session()->flash('flash.bannerStyle', __('success'));
+
         return route('teams.create', ['team_database_uuid' => $this->teamDatabaseUuid, 'team_database_name' => $this->teamDatabaseName]);
     }
 }
