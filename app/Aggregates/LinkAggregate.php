@@ -20,6 +20,7 @@ class LinkAggregate extends AggregateRoot
         ?string $label = null,
         ?string $view = null,
         ?string $icon = null,
+        ?int $orderColumn = null,
     ) {
         $this->recordThat(new LinkCreated(
             $this->uuid(),
@@ -33,6 +34,7 @@ class LinkAggregate extends AggregateRoot
             label:  $label,
             view:  $view,
             icon:  $icon,
+            orderColumn:  $orderColumn,
         ));
 
         return $this;
@@ -49,6 +51,7 @@ class LinkAggregate extends AggregateRoot
         ?string $label = null,
         ?string $view = null,
         ?string $icon = null,
+        ?int $orderColumn = null,
     ) {
         $this->recordThat(new LinkUpdated(
             $this->uuid(),
@@ -62,6 +65,7 @@ class LinkAggregate extends AggregateRoot
             label:  $label,
             view:  $view,
             icon:  $icon,
+            orderColumn:  $orderColumn,
         ));
 
         return $this;

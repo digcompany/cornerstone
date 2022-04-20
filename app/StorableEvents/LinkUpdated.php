@@ -18,6 +18,7 @@ class LinkUpdated extends ShouldBeStored
         public ?string $icon = null,
         public ?string $type = null,
         public ?string $target = null,
+        public ?int $orderColumn = null,
     ) {
     }
 }

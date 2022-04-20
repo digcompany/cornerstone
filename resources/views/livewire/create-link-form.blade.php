@@ -109,7 +109,20 @@
                     <x-jet-input-error for="view" class="w-full mt-2" />
                 </div>
 
-                <x-jet-input-error for="view" class="w-full mt-2" />
+                <div class="inline-flex flex-row justify-between w-full sm:col-span-4">
+                    <x-jet-label class="w-12 mt-4 mr-2" for="order_column" value="{{ __('Sort') }}" />
+
+                    <x-select id="view" class="block w-full mt-1" wire:model.defer="state.order_column">
+
+                        @foreach(\App\Models\Link::ordered()->pluck('order_column') as $orderColumn)
+                        <option>{{ $orderColumn }}</option>
+                        @endforeach
+                        <option>{{ \App\Models\Link::max('order_column') + 1 }}</option>
+
+                    </x-select>
+
+                    <x-jet-input-error for="order_column" class="w-full mt-2" />
+                </div>
 
                 <div class="inline-flex flex-row justify-between w-full sm:col-span-4">
                     <x-jet-label class="w-12 mt-4 mr-2" for="icon" value="{{ __('Icon') }}" />

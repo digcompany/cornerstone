@@ -37,6 +37,7 @@ class CreateLinkForm extends Component
             'title' => '',
             'label' => '',
             'view' => LinkMenu::NavigationMenu->value,
+            'order_column' => \App\Models\Link::max('order_column') + 1,
         ];
     }
 
@@ -51,7 +52,7 @@ class CreateLinkForm extends Component
     /**
      * Create a new team.
      *
-     * @param  \Laravel\Jetstream\Contracts\CreatesTeams  $creator
+     * @param  \Laravel\Jetstream\Contracts\CreatesLink  $creator
      * @return void
      */
     public function createLink(CreatesLink $creator)

@@ -32,6 +32,7 @@ class UpdateLink implements UpdatesLink
             'view' => [new Enum(LinkMenu::class), 'nullable'],
             'icon' => ['exists:icons,name','string', 'nullable', 'max:255', 'min:2'],
             'team_uuid' => ['nullable', 'string','exists:teams,uuid', 'max:255'],
+            'order_column' => ['integer', 'nullable'],
         ])->validateWithBag('updateLink');
 
         $linkAggregate = LinkAggregate::retrieve($link->uuid);
@@ -46,6 +47,7 @@ class UpdateLink implements UpdatesLink
             label: $input['label'] ?? null,
             view: $input['view'] ?? null,
             icon: $input['icon'] ?? null,
+            orderColumn: $input['order_column'] ?? null,
         )->persist();
     }
 }
