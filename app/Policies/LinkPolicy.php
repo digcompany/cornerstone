@@ -31,6 +31,7 @@ class LinkPolicy
     public function view(User $user, Link $link)
     {
         $teamIsCurrent = isset(app()['team']) && app('team')->id == $link->team->id;
+
         return $user->id == $link->user_id ||
         $teamIsCurrent && $user->ownsTeam($link->team) ||
         $teamIsCurrent && $user->hasTeamRole($link->team, 'admin') ||
