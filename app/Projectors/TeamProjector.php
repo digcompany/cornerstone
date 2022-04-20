@@ -14,6 +14,7 @@ use App\StorableEvents\TeamMemberAdded;
 use App\StorableEvents\TeamMemberInvited;
 use App\StorableEvents\TeamMemberRemoved;
 use App\StorableEvents\TeamNameUpdated;
+use Laravel\Jetstream\Events\AddingTeam;
 use Laravel\Jetstream\Jetstream;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
@@ -24,6 +25,8 @@ class TeamProjector extends Projector
         $user = User::whereUuid($event->ownerUuid)->first();
 
         $teamDatabase = TeamDatabase::whereUuid($event->teamDatabaseUuid)->firstOrFail();
+
+        AddingTeam::dispatch($user);
 
         $user->switchTeam($team = $user->ownedTeams()->create([
             'uuid' => $event->teamUuid,

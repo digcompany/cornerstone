@@ -30,7 +30,10 @@ class CreateTeam implements CreatesTeams
             'uuid' => ['nullable'],
         ])->validateWithBag('createTeam');
 
-        AddingTeam::dispatch($user);
+        /**
+         * moved to projector
+         */
+        // AddingTeam::dispatch($user);
 
         $uuid = Str::uuid();
 
