@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\TeamAuth;
 use App\Models\Team;
 use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class TeamServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,10 @@ class TeamServiceProvider extends ServiceProvider
         $this->configureRequests();
 
         $this->configureQueue();
+
+        Livewire::addPersistentMiddleware([
+            TeamAuth::class,
+        ]);
     }
 
     public function configureRequests()
