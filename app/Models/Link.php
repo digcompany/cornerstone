@@ -56,4 +56,9 @@ class Link extends Model implements Sortable
             set: fn ($value, $attributes) => $value,
         );
     }
+
+    public function buildSortQuery()
+    {
+        return static::query()->withoutGlobalScope('ParentalInheritance');
+    }
 }

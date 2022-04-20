@@ -114,8 +114,12 @@
 
                     <x-select id="view" class="block w-full mt-1" wire:model.defer="state.order_column">
 
-                        @foreach(\App\Models\Link::ordered()->pluck('order_column') as $orderColumn)
-                        <option>{{ $orderColumn }}</option>
+                        @php $linkIndex = 1; @endphp
+                        @foreach(\App\Models\Link::ordered()->get() as $link)
+                        @if(Gate::allows('view', $link))
+                        <option value="{{ $link->order_column }}">{{ $linkIndex }}</option>
+                        @php $linkIndex++; @endphp
+                        @endif
                         @endforeach
 
                     </x-select>
