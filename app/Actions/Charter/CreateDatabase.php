@@ -4,12 +4,16 @@ namespace App\Actions\Charter;
 
 use App\Aggregates\TeamDatabaseAggregate;
 use App\Contracts\CreatesDatabase;
+use App\Models\TeamDatabase;
 use App\Rules\DatabaseDoesNotExist;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class CreateDatabase implements CreatesDatabase
 {
+    public $teamDatabaseUuid;
+    public $teamDatabaseName;
+
     /**
      * Validate and save the given model.
      *
@@ -30,7 +34,7 @@ class CreateDatabase implements CreatesDatabase
 
         if (app()->environment('production')) {
             $nameRules[] = 'regex:/^[a-z0-9- _]+$/';
-            $nameRules[] = 'not_in:test_database,test_database.sqlite,mysql';
+            $nameRules[] = 'not_in:test_database,test_database.sqlite,mysql,information_schema,performance_schema';
         }
 
         Validator::make($input, [
@@ -43,10 +47,15 @@ class CreateDatabase implements CreatesDatabase
         $aggregate = TeamDatabaseAggregate::retrieve($uuid)
             ->createTeamDatabase($user->uuid, $input['name'])
             ->persist();
+        
+        $this->teamDatabaseUuid = $aggregate->uuid();
+        $this->teamDatabaseName = $input['name'];
     }
 
     public function redirectTo()
     {
-        return route('teams.create');
+        session()->flash('flash.banner', __('Database created successfully.'));
+        session()->flash('flash.bannerStyle', __('success'));
+        return route('teams.create', ['team_database_uuid' => $this->teamDatabaseUuid, 'team_database_name' => $this->teamDatabaseName]);
     }
 }
