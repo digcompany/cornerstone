@@ -22,6 +22,18 @@
             </div>
         </div>
 
+        <!-- Company Database -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="database_name" value="{{ __('Company Database') }}" />
+
+            <x-jet-input id="database_name"
+                        type="text"
+                        class="block w-full mt-1"
+                        value="{{ $team?->teamDatabase?->name }}"
+                        :disabled="true" />
+
+        </div>
+
         <!-- Company Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Company Name') }}" />
