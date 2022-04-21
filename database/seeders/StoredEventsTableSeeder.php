@@ -187,20 +187,6 @@ class StoredEventsTableSeeder extends Seeder
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T15:46:26.861491Z","aggregate-root-version":5,"stored-event-id":12}',
                 'created_at' => '2022-04-15 11:46:26',
             ),
-            12 => 
-            array (
-                'id' => 13,
-                'user_uuid' => '3cf992e8-c041-43ca-beaf-e65564cc4f2d',
-                'team_uuid' => 'e35bbf1d-88bc-40c2-a50a-6ebc171b9a06',
-                'owner_uuid' => '3cf992e8-c041-43ca-beaf-e65564cc4f2d',
-                'aggregate_uuid' => 'e35bbf1d-88bc-40c2-a50a-6ebc171b9a06',
-                'aggregate_version' => 6,
-                'event_version' => 1,
-                'event_class' => 'App\\StorableEvents\\TeamCompanyDataUpdated',
-                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Acworth","state":"GA","zip":"30101","street":"4494 Acworth Industrial Drive,","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"phone":"404-587-4272","fax":"770-485-0196"}}',
-                'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T16:03:31.419850Z","aggregate-root-version":6,"stored-event-id":13}',
-                'created_at' => '2022-04-15 12:03:31',
-            ),
             13 => 
             array (
                 'id' => 14,
