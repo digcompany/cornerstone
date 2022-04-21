@@ -197,7 +197,7 @@ class StoredEventsTableSeeder extends Seeder
                 'aggregate_version' => 6,
                 'event_version' => 1,
                 'event_class' => 'App\\StorableEvents\\TeamCompanyDataUpdated',
-                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Acworth","state":"GA","zip":"30101","street":"4494 Acworth Industrial Drive,","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"phone":"404-587-4272","fax":"770-485-0196"}}',
+                'event_properties' => '{"teamUuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","companyData":{"address":{"city":"Little Rock","state":"AR","zip":"72201","street":"4494 Acme Industrial Drive","country":"USA","lineTwo":"Suit 103"},"name":null,"website":null,"email":null,"phone":"555-555-5555","fax":"555-555-5555"}}',
                 'meta_data' => '{"aggregate-root-uuid":"e35bbf1d-88bc-40c2-a50a-6ebc171b9a06","created-at":"2022-04-15T16:03:31.419850Z","aggregate-root-version":6,"stored-event-id":13}',
                 'created_at' => '2022-04-15 12:03:31',
             ),
