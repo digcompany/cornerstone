@@ -29,7 +29,7 @@ class UpdateTeamDomain implements UpdatesTeamDomains
         $restrictedDomains[] = $appDomain;
 
         Validator::make($input, [
-            'domain' => ['required', 'string',Rule::unique('landlord.teams')->ignore($team->uuid, 'uuid'), 'max:255', 'not_in:'.implode(',', $restrictedDomains)],
+            'domain' => ['nullable', 'string',Rule::unique('landlord.teams')->ignore($team->uuid, 'uuid'), 'max:255', 'not_in:'.implode(',', $restrictedDomains)],
         ])->validateWithBag('updateTeamDomain');
 
         TeamAggregate::retrieve(
