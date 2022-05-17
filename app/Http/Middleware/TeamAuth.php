@@ -36,7 +36,6 @@ class TeamAuth
             $team = tap($team->configure()->use(), function ($team) use ($request) {
                 $request->session()->put('team_uuid', $team->uuid);
             });
-            
         }
 
         return $next($request);
