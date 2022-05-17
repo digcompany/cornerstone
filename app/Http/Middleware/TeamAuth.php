@@ -28,10 +28,15 @@ class TeamAuth
                         );
                     }
                 }
+                $request->session()->put('team_uuid', app('team')->uuid);
             }
         } elseif ($request->user() && isset($request->user()->currentTeam->uuid)) {
             $team = Team::where('uuid', $request->user()->currentTeam->uuid)->firstOrFail();
-            $team = $team->configure()->use();
+            
+            $team = tap($team->configure()->use(), function ($team) use ($request) {
+                $request->session()->put('team_uuid', $team->uuid);
+            });
+            
         }
 
         return $next($request);
