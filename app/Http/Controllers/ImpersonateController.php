@@ -31,4 +31,3 @@ class ImpersonateController extends Lab404ImpersonateController
         return parent::take($request, $id, $guardName);
     }
 }
-
