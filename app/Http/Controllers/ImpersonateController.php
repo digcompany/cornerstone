@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\UpdatesCurrentTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Lab404\Impersonate\Controllers\ImpersonateController as Lab404ImpersonateController;
@@ -23,6 +24,11 @@ class ImpersonateController extends Lab404ImpersonateController
             abort(403);
         }
 
+        $updater = app(UpdatesCurrentTeam::class);
+
+        $updater->update($userToImpersonate, ['team_uuid' => $team->uuid]);
+
         return parent::take($request, $id, $guardName);
     }
 }
+
