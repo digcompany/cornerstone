@@ -55,16 +55,12 @@ class UserProjector extends Projector
 
     public function onUserCreated(UserCreated $event)
     {
-        $password = (strlen($event->password) === 60 && preg_match('/^\$2y\$/', $event->password)) ||
-        (strlen($event->password) === 95 && preg_match('/^\$argon2i\$/', $event->password)) ?
-            $event->password :
-            Hash::make($event->password);
 
         $user = User::forceCreate([
             'uuid' => $event->userUuid,
             'name' => $event->name,
             'email' => $event->email,
-            'password' => $password,
+            'password' => $this->hashPassword($event->password),
             'type' => User::count() === 0 ? UserType::SuperAdmin : UserType::User,
         ]);
 
@@ -104,7 +100,7 @@ class UserProjector extends Projector
         $user = User::whereUuid($event->userUuid)->first();
 
         $user->forceFill([
-            'password' => Hash::make($event->password),
+            'password' => $this->hashPassword($event->password),
         ])->save();
     }
 
@@ -163,5 +159,13 @@ class UserProjector extends Projector
         $user->forceFill([
             'type' => $event->userType,
         ])->save();
+    }
+
+    protected function hashPassword(string $password)
+    {
+        return (strlen($password) === 60 && preg_match('/^\$2y\$/', $password)) ||
+        (strlen($password) === 95 && preg_match('/^\$argon2i\$/', $password)) ?
+            $password :
+            Hash::make($password);
     }
 }
