@@ -55,7 +55,6 @@ class UserProjector extends Projector
 
     public function onUserCreated(UserCreated $event)
     {
-
         $user = User::forceCreate([
             'uuid' => $event->userUuid,
             'name' => $event->name,
